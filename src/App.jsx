@@ -12,9 +12,12 @@ function App() {
     
     try {
       // Using the proxy configuration to call the backend API
+      console.log('VITE_API_URL:', import.meta.env.VITE_API_URL)
       const response = await fetch('/api')
       
       if (!response.ok) {
+        // If the response is not ok, throw an error
+        console.error('Error fetching reason:', response.statusText)
         throw new Error(`HTTP error! status: ${response.status}`)
       }
       
