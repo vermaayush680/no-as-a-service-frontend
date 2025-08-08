@@ -11,9 +11,11 @@ function App() {
     setError('')
     
     try {
-      // Using the proxy configuration to call the backend API
-      console.log('VITE_API_URL:', import.meta.env.VITE_API_URL)
-      const response = await fetch('/api')
+      // Use full backend URL in production, proxy in development
+      const isProd = import.meta.env.PROD;
+      const url = import.meta.env.VITE_API_URL;
+      console.log('Calling API:', url);
+      const response = await fetch(url)
       
       if (!response.ok) {
         // If the response is not ok, throw an error
