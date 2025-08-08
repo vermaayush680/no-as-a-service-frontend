@@ -12,7 +12,7 @@ function App() {
     
     try {
       // Using the proxy configuration to call the backend API
-      const response = await fetch('/api/no')
+      const response = await fetch('/api')
       
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`)
